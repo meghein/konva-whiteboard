@@ -1,8 +1,16 @@
+@import "styles/variables.scss";
+
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100vw;
+  display: grid;
+  grid-template-rows: $nav-height auto $nav-height/2;
+  grid-template-columns: $nav-height*2 auto;
+  grid-template-areas:
+    "header header"
+    "toolbar main"
+    "toolbar footer";
   height: 100vh;
+  main {
+    display: grid;
+    grid-area: main;
+  }
 }
