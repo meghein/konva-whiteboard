@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Text, Transformer } from 'react-konva';
-import useTextSettings from '../../hooks/useTextSettings'
+// import useTextSettings from '../../hooks/useTextSettings'
 
 export default function NewText(props) {
   const shapeRef = useRef();

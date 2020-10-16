@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { forwardRef, useState } from 'react';
 import './Canvas.scss';
 
-export default function Canvas() {
+export default forwardRef(function Canvas(props) {
+
+  const checkDeselect = e => {
+    if (e.target === e.target.getStage() || e.target.hasName("container")) {
+      props.setTargetShape(null);
+    }
+  };
+
+  const shapeProps = {
+    name: 'container',
+    fill: props.boxColour,
+    shadowColor: 'gray',
+    stroke:'black',
+    strokeWidth:4,
+    cornerRadius:10,
+  }
   return (
-    <div id='canvas'>
-      
-    </div>
+    <div
+        className='canvas' 
+        id='canvas'
+        onDrop={props.onDrop}
+        onDragOver={props.onDragOver}
+        // style={{backgroundColor: props.canvasColour}}
+
+      ></div>
   )
-}
+})
