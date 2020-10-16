@@ -24,7 +24,8 @@ export default forwardRef(function Canvas(props) {
         onDrop={props.onDrop}
         onDragOver={props.onDragOver}
         // style={{backgroundColor: props.canvasColour}}
-
-      ></div>
+    >
+      
+    </div>
   )
 })
