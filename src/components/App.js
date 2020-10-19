@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './components/Header'
-import Toolbar from './components/toolbar'
-import Canvas from './components/Canvas'
-import Footer from './components/Footer'
+import Header from './Header'
+import Toolbar from './toolbar'
+import Canvas from './Canvas'
+import Footer from './Footer'
 import './App.scss';
 
 export default function App() {
