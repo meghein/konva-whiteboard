@@ -1,6 +1,6 @@
 import React, { createRef, useState } from 'react';
 
-export default function NewImage() {  
+export default function ImageUploader() {  
   const [image, setImage] = useState()
   const fileUploadEl = createRef();
 

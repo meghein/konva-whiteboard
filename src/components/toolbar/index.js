@@ -1,11 +1,11 @@
 import React from 'react';
-import NewImage from './NewImage'
+import ImageUploader from './ImageUploader'
 import './Toolbar.scss';
 
 export default function Toolbar() {
   return (
     <div id="toolbar">
-      <NewImage/>
+      <ImageUploader/>
     </div>
   )
 }
