@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useCanvasItems } from '../context/AppProvider';
-import useDragDrop from '../hooks/useDragDrop';
+import { useCanvasItems } from '../../context/AppProvider';
+import useDragDrop from '../../hooks/useDragDrop';
 import './Imports.scss';
 
 export default function Items() {
