@@ -1,20 +1,20 @@
 import React from 'react';
-import { Stage } from 'react-konva'
-import { useCanvasItems } from '../context/AppProvider'
+import { Layer, Stage } from 'react-konva'
+import Items from './Items'
 import './Canvas.scss';
 
 export default function Canvas() {
-  const state = useCanvasItems()
+  
 
 
   return (
     <div className='background'>
-      <div
-        id='canvas'
-        className='canvas'
-      >
-        <Stage></Stage>
-
+      <div id='canvas' className='canvas'>
+        {/* <Stage>
+          <Layer> */}
+            <Items/>
+          {/* </Layer>
+        </Stage> */}
       </div>
     </div>
   )

@@ -15,9 +15,9 @@ export default function AppProvider({children}) {
   })
 
   function uploadImage(image) {
-    setState({...state, images: {id: Date.now(), image: image}})
-    console.log('THE IMAGE:', image)
-    console.log(state)
+    const tempImages = [...state.images];
+    tempImages.push({id: Date.now(), image: image});
+    setState({images: tempImages})
   }
 
   return (
