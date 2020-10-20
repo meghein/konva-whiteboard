@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCanvasItems} from '../context/AppProvider';
 import './Imports.scss';
 
@@ -8,19 +8,22 @@ export default function Items() {
   
   function toggleButton() {
     toggle ? setToggle(false) : setToggle(true)
-    console.log(state.images)
   }
+
+  useEffect(() => {
+    setToggle(false)
+  }, [state.imports])
 
   return (
     <div className='imports'>
       {toggle && 
         <button onClick={toggleButton}>Imports</button>
       }
-      {state.images.length !== 0 && !toggle &&
+      {state.imports.length !== 0 && !toggle &&
         <button onClick={toggleButton}>Close</button>
       }
       {!toggle &&
-        state.images.map((item, index) => {
+        state.imports.map((item, index) => {
           return (
             <img
               src={item.image}

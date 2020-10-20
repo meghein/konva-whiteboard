@@ -11,6 +11,7 @@ export function useUpload () {
 
 export default function AppProvider({children}) {
   const [state, setState] = useState({
+    imports: [],
     images: [],
     text: [],
     circles: [],
@@ -19,9 +20,9 @@ export default function AppProvider({children}) {
   })
 
   function uploadImage(image) {
-    const tempImages = [...state.images];
-    tempImages.push({id: Date.now(), image: image});
-    setState({images: tempImages})
+    const tempImports = [...state.imports];
+    tempImports.push({id: Date.now(), image: image});
+    setState({imports: tempImports})
   }
 
   return (
