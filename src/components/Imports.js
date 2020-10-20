@@ -29,7 +29,6 @@ export default function Items() {
               src={item.image}
               alt={item.id}
               key={index}
-              style={{maxWidth: '200px', maxHeight: '150px'}}
             />
           )
         })
