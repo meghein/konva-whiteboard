@@ -1,6 +1,11 @@
-#canvas {
-  width: 90%;
-  height: 90%;
-  margin: auto;
-  border: 1px solid red;
+.background {
+  grid-area: canvas;
+  display: flex;
+  align-items: center;
+  .canvas {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    border: 1px solid red;
+  }
 }

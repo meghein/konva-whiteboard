@@ -6,11 +6,7 @@
   grid-template-columns: $nav-height*2 auto;
   grid-template-areas:
     "header header"
-    "toolbar main"
+    "toolbar canvas"
     "toolbar footer";
   height: 100vh;
-  main {
-    display: grid;
-    grid-area: main;
-  }
 }

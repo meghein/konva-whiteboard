@@ -30,12 +30,18 @@
 //   )
 // })
 
-import React from 'react'
+import React from 'react';
+import './Canvas.scss';
 
 export default function Canvas() {
   return (
-    <div>
-      
+    <div className='background'>
+      <div
+        id='canvas'
+        className='canvas'
+      >
+
+      </div>
     </div>
   )
 }
