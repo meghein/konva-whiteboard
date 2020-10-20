@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useCanvasItems} from '../context/AppProvider';
+import { useCanvasItems } from '../context/AppProvider';
+import useDragDrop from '../hooks/useDragDrop';
 import './Imports.scss';
 
 export default function Items() {
-  const state = useCanvasItems()
+  const state = useCanvasItems();
+  const { onDragStart } = useDragDrop();
   const [toggle, setToggle] = useState(false)
   
   function toggleButton() {
     toggle ? setToggle(false) : setToggle(true)
   }
 
+  // open imports drawer when a new file is uploaded
   useEffect(() => {
     setToggle(false)
   }, [state.imports])
@@ -29,6 +32,7 @@ export default function Items() {
               src={item.image}
               alt={item.id}
               key={index}
+              onDragStart={onDragStart}
             />
           )
         })
