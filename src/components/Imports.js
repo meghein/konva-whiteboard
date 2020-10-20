@@ -16,6 +16,9 @@ export default function Items() {
       {toggle && 
         <button onClick={toggleButton}>Imports</button>
       }
+      {state.images.length !== 0 && !toggle &&
+        <button onClick={toggleButton}>Close</button>
+      }
       {!toggle &&
         state.images.map((item, index) => {
           return (
@@ -23,13 +26,10 @@ export default function Items() {
               src={item.image}
               alt={item.id}
               key={index}
-              style={{maxWidth: '150px', maxHeight: '150px'}}
+              style={{maxWidth: '200px', maxHeight: '150px'}}
             />
           )
         })
-      }
-      {(state.images.length !== 0) && !toggle &&
-        <button onClick={toggleButton}>Close</button>
       }
     </div>
   )
