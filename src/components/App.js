@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import AppProvider from '../context/AppProvider'
 import Header from './Header'
 import Toolbar from './toolbar'
 import Canvas from './Canvas'
@@ -6,17 +7,15 @@ import Footer from './Footer'
 import './App.scss';
 
 export default function App() {
-  const [targetShape, setTargetShape] = useState('')
+
   return (
     <div className="App">
-      <Header/>
+      <AppProvider>
+        <Header/>
         <Toolbar/>
-      <main>
-        <Canvas
-          setTargetShape = {setTargetShape}
-        />
-      </main>
-      <Footer/>
+        <Canvas/>
+        <Footer/>
+      </AppProvider>
     </div>
   );
 }
