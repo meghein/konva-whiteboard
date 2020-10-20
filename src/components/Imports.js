@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCanvasItems} from '../context/AppProvider';
 import './Imports.scss';
 
 export default function Items() {
   const state = useCanvasItems()
+  const [toggle, setToggle] = useState(false)
+  
+  function toggleButton() {
+    toggle ? setToggle(false) : setToggle(true)
+    console.log(state.images)
+  }
 
   return (
-    <div className='imports-drawer'>
-      {state && state.images.map((item, index) => {
-        return (
-          <img
-            src={item.image}
-            alt={item.id}
-            key={index}
-            style={{maxWidth: '100px', maxHeight: '100px'}}
-          />
-        )
-      })}
+    <div className='imports'>
+      {toggle && 
+        <button onClick={toggleButton}>Imports</button>
+      }
+      {!toggle &&
+        state.images.map((item, index) => {
+          return (
+            <img
+              src={item.image}
+              alt={item.id}
+              key={index}
+              style={{maxWidth: '150px', maxHeight: '150px'}}
+            />
+          )
+        })
+      }
+      {(state.images.length !== 0) && !toggle &&
+        <button onClick={toggleButton}>Close</button>
+      }
     </div>
   )
 };

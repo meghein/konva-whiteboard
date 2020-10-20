@@ -3,6 +3,7 @@ import AppProvider from '../context/AppProvider'
 import Header from './Header'
 import Toolbar from './toolbar'
 import Canvas from './Canvas'
+import Imports from './Imports'
 import Footer from './Footer'
 import './App.scss';
 
@@ -14,6 +15,7 @@ export default function App() {
         <Header/>
         <Toolbar/>
         <Canvas/>
+        <Imports/>
         <Footer/>
       </AppProvider>
     </div>

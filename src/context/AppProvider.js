@@ -11,7 +11,11 @@ export function useUpload () {
 
 export default function AppProvider({children}) {
   const [state, setState] = useState({
-    images: []
+    images: [],
+    text: [],
+    circles: [],
+    rectangles: [],
+    draw: [],
   })
 
   function uploadImage(image) {
