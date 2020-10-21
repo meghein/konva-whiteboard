@@ -1,9 +1,9 @@
 import React, { createRef } from 'react';
-import { useUpload } from '../../context/AppProvider'
+import { useChangeItems } from '../../context/AppProvider'
 
 export default function ImageUploader() { 
   const fileUploadEl = createRef();
-  const uploadImage = useUpload()
+  const addCanvasItem = useChangeItems()
 
   // Uses ref of input to run 'fileChange'
   const addImage = () => {
@@ -16,7 +16,7 @@ export default function ImageUploader() {
     const reader = new FileReader();
     reader.readAsDataURL(file)
     reader.addEventListener("load", () => {
-      uploadImage(reader.result)   
+      addCanvasItem('import', reader.result)   
     });
   };
 

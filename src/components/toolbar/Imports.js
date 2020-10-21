@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useCanvasItems } from '../../context/AppProvider';
+import { useCanvasItems, useChangeItems } from '../../context/AppProvider';
 import useDragDrop from '../../hooks/useDragDrop';
 import './Imports.scss';
 
 export default function Items() {
   const state = useCanvasItems();
+  const addCanvasItems = useChangeItems();
   const { onDragStart } = useDragDrop();
   const [toggle, setToggle] = useState(false)
   
@@ -16,6 +17,10 @@ export default function Items() {
   useEffect(() => {
     setToggle(false)
   }, [state.imports])
+
+  function handleImageClick(e) {
+    addCanvasItems('image', e.target)
+  }
 
   return (
     <div className='imports'>
@@ -32,6 +37,7 @@ export default function Items() {
               src={item.image}
               alt={item.id}
               key={index}
+              onClick={handleImageClick}
               onDragStart={onDragStart}
             />
           )

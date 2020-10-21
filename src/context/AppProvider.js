@@ -1,13 +1,9 @@
-import React, { useContext, useState } from 'react';
-const CanvasItems = React.createContext();
-const UpdateImageArray = React.createContext();
-const UpdateCanvasItems = React.createContext();
+import React, { useState, createContext, useContext } from 'react';
+const CanvasItems = createContext();
+const UpdateCanvasItems = createContext();
 
 export function useCanvasItems () {
   return useContext(CanvasItems)
-}
-export function useUpload () {
-  return useContext(UpdateImageArray)
 }
 export function useChangeItems () {
   return useContext(UpdateCanvasItems)
@@ -23,19 +19,31 @@ export default function AppProvider({children}) {
     draw: [],
   })
 
-  function uploadImage(image) {
-    const tempImports = [...state.imports];
-    tempImports.push({id: Date.now(), image: image});
-    setState({imports: tempImports})
+  // Store items in one state object.
+  function addCanvasItem(type, source) {
+    if (type === 'import') {
+      const tempState = [...state.imports];
+      tempState.push({id: Date.now(), image: source});
+      setState({...state, imports: tempState})
+
+    } else if (type === 'image') {
+      const tempState =  [...state.images];
+      tempState.push({
+        id: Date.now(),
+        src: source.src,
+        x: window.innerWidth * Math.random(),
+        y: window.innerHeight * Math.random(),
+      })
+      setState({...state, images: tempState})
+    }
+    console.log(state)
   }
 
   return (
     <CanvasItems.Provider value={state}>
-      <UpdateImageArray.Provider value={uploadImage}>
-        <UpdateCanvasItems.Provider value={setState}>
+        <UpdateCanvasItems.Provider value={addCanvasItem}>
           {children}
         </UpdateCanvasItems.Provider>
-      </UpdateImageArray.Provider>
     </CanvasItems.Provider>
   )
 }

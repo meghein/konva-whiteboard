@@ -1,6 +1,7 @@
 import React from 'react';
-import useDragDrop from '../hooks/useDragDrop'
+import Items from './canvas-items/Items';
 import { Layer, Stage } from 'react-konva';
+import useDragDrop from '../hooks/useDragDrop';
 import './Canvas.scss';
 
 export default function Canvas() {
@@ -18,6 +19,7 @@ export default function Canvas() {
           onDragOver={onDragOver}
         >
           <Layer>
+            <Items/>
           </Layer>
         </Stage>
       </div>
