@@ -19,7 +19,7 @@ export default function AppProvider({children}) {
     draw: [],
   })
 
-  // Store items in one state object.
+  // function pushes new items in to state object
   function addCanvasItem(type, source) {
     if (type === 'import') {
       const tempState = [...state.imports];

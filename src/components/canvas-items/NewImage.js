@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { Image } from 'react-konva';
 import useImage from 'use-image';
+import { useCanvasItems } from '../../context/AppProvider';
 
-export default function NewImage(image, id) {
-  const [img] = useImage(image)
+export default function NewImage(image) {
+  const state = useCanvasItems();
   useEffect(() => {
-    console.log(img)
-    console.log(image)
-  }, [image])
+    console.log("imag", state)
+  }, [state])
 
   return (
     <Image
-      id={id}
-      image={img}
+      // id={id}
+      // image={img}
     />
   )
 };
