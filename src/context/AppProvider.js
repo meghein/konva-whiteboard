@@ -2,10 +2,10 @@ import React, { useState, createContext, useContext } from 'react';
 const CanvasItems = createContext();
 const UpdateCanvasItems = createContext();
 
-export function useCanvasItems () {
+export function useCanvasItems() {
   return useContext(CanvasItems)
 }
-export function useChangeItems () {
+export function useChangeItems() {
   return useContext(UpdateCanvasItems)
 }
 
@@ -36,14 +36,14 @@ export default function AppProvider({children}) {
       })
       setState({...state, images: tempState})
     }
-    console.log(state)
+    console.log("state after new item added:", state)
   }
 
   return (
-    <CanvasItems.Provider value={state}>
-        <UpdateCanvasItems.Provider value={addCanvasItem}>
+    <UpdateCanvasItems.Provider value={addCanvasItem}>
+      <CanvasItems.Provider value={state}>
           {children}
-        </UpdateCanvasItems.Provider>
-    </CanvasItems.Provider>
+      </CanvasItems.Provider>
+    </UpdateCanvasItems.Provider>
   )
 }

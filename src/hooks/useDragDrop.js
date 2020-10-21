@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import { useCanvasItems} from '../context/AppProvider';
+// import { useCanvasItems} from '../context/AppProvider';
 // import { useChangeItems} from '../context/AppProvider';
 
 export default function useDragDrop() {
-  const state = useCanvasItems();
+  // const state = useCanvasItems();
   // const setState = useChangeItems();
 
   const dragItem = useRef();

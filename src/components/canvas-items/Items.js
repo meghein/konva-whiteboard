@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import NewImage from './NewImage';
-import { useCanvasItems } from '../../context/AppProvider';
+import { useCanvas } from '../Canvas';
 
 export default function Items() {
-  const state = useCanvasItems();
+  const state = useCanvas();
 
   useEffect(() => {
     console.log("state in items", state)
