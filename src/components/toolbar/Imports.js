@@ -13,7 +13,7 @@ export default function Items() {
     toggle ? setToggle(false) : setToggle(true)
   }
 
-  // open imports drawer when a new file is uploaded
+  // open imports when a new file is uploaded
   useEffect(() => {
     setToggle(false)
   }, [state.imports])
@@ -24,9 +24,7 @@ export default function Items() {
 
   return (
     <div className='imports'>
-      {toggle && 
-        <button onClick={toggleButton}>Imports</button>
-      }
+      {toggle && <button onClick={toggleButton}>Imports</button>}
       {state.imports.length !== 0 && !toggle &&
         <button onClick={toggleButton}>Close</button>
       }
@@ -40,8 +38,7 @@ export default function Items() {
               onClick={handleImageClick}
               onDragStart={onDragStart}
             />
-          )
-        })
+        )})
       }
     </div>
   )
