@@ -8,11 +8,12 @@ export default function Items() {
 
   return (
     <>
-      {state && state.images.map(image => {
+      {state && state.images.map((image, index) => {
           return (
             <NewImage
               key={image.id}
               image={image}
+              index={index}
               isSelected={image.id === state.targetShape}
               // onChange={newAttrs => {
               //   const temp = [...state]

@@ -17,10 +17,21 @@ export function useChange() {
 }
 // ********************
 
+const ChangeItems = createContext();
+export function useNewAttrs() {
+  return useContext(ChangeItems)
+}
+
 export default function Canvas() {
   const { onDrop, onDragOver } = useDragDrop;
   const state = useCanvasItems();
   const addCanvasItem = useChangeItems();
+
+  function changeCanvasItem(key, index, newAttrs) {
+      const temp = [...state[key]]
+      temp[index] = newAttrs;
+      addCanvasItem(temp);
+  }
 
   
   return (
@@ -35,9 +46,11 @@ export default function Canvas() {
         >
           <UpdateCanvasItems.Provider value={addCanvasItem}>
             <CanvasItems.Provider value={state}>
-              <Layer>
-                <Items/>
-              </Layer>
+              <ChangeItems.Provider value={changeCanvasItem}>
+                <Layer>
+                  <Items/>
+                </Layer>
+              </ChangeItems.Provider>
             </CanvasItems.Provider>
           </UpdateCanvasItems.Provider> 
         </Stage>
