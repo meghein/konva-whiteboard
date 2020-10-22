@@ -17,11 +17,15 @@ export default function AppProvider({children}) {
     circles: [],
     rectangles: [],
     draw: [],
+    targetShape: null,
   })
 
   // function pushes new items in to state object
   function addCanvasItem(type, source) {
-    if (type === 'import') {
+    if (type === 'targetShape') {
+      setState({...state, targetShape: source})
+
+    } else if (type === 'import') {
       const tempState = [...state.imports];
       tempState.push({id: Date.now(), image: source});
       setState({...state, imports: tempState})
