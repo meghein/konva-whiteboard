@@ -25,11 +25,11 @@ export default function Canvas() {
   
   return (
     <div className='background'>
-      <div id='canvas' className='canvas'>
+      <div id='canvas'>
         <Stage
           container='canvas'
-          width='window.innerWidth'
-          height='window.innerHeight'
+          width={842}
+          height={1191}
           onDrop={onDrop}
           onDragOver={onDragOver}
         >

@@ -1,11 +1,11 @@
 .background {
   grid-area: canvas;
   display: flex;
-  align-items: center;
-  .canvas {
-    width: 90%;
-    height: 90%;
-    margin: auto;
+  justify-content: center;
+  #canvas {
+    width: 842px;
+    height: 1191px;
+    margin: 2em;
     border: 1px solid red;
   }
 }
