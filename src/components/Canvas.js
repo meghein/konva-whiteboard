@@ -28,6 +28,8 @@ export default function Canvas() {
       <div id='canvas' className='canvas'>
         <Stage
           container='canvas'
+          width='window.innerWidth'
+          height='window.innerHeight'
           onDrop={onDrop}
           onDragOver={onDragOver}
         >
